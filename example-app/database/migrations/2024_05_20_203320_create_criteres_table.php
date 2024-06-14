@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('criteres', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('reference_id')->constrained('references')->onDelete('cascade');
             $table->string('nom');
-            $table->foreignId('champ_id')->constrained('champs')->onDelete('cascade');
             $table->timestamps();
         });
     }
